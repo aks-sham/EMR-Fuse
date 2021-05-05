@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="static\disp.css">
+<title>DataSet</title>
+<body>
+    <script src="static\index.js"></script>
+    <div id="navbar">
+      <a style="height: 30px;" href="/" id="logo"><img src="static\pic\i1.jpg" style="max-height: 65px; top: -24px; position: relative "></a>
+        <div id="navbar-right">
+          <a href="/">Home</a>
+          <a href="/contact">Contact Us</a>
+          <a href="/about">About</a>
+          <a href="/developers">Developers</a>
+          <a href="/upcsv">Upload csv file</a>
+          <a class="active" href="/display">DataSet</a>
+         
+        </div>
+    </div>
+<br><br><br><br><br><br><br><br><br><br><br>
+<button style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); font-size: 25px; padding: 10px; border-radius: 4px; background-color: dodgerblue; border: none; margin: auto; display:block; "><a style=" text-align:center; text-decoration: none; color: white;" href="{{ url_for('.download_file') }}">Download DataSet</a></button>
+<br><br>
+<div style="font-size: 25px; text-align: center; margin: auto; display: block;">
+{% for table in tables %} 
+            {{ table|safe }}
+{% endfor %}
+</div>
+<br><br><br>
+<h3 style="text-align: center;">**Only the top 501 data entries are shown here**</h3>
+<h3 style="text-align: center;">""Download DataSet for more**</h3>
+
+</body>
+</html>

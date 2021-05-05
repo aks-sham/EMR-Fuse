@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="static\upcsv.css" type="text/css">
+<title>Upload CSV file here</title>
+<body>
+    <script src="static\index.js"></script>
+    <div id="navbar">
+      <a style="height: 30px;" href="/" id="logo"><img src="static\pic\i1.jpg" style="max-height: 65px; top: -24px; position: relative "></a>
+        <div id="navbar-right">
+          <a href="/">Home</a>
+          <a href="/contact">Contact Us</a>
+          <a href="/about">About</a>
+          <a href="/developers">Developers</a>
+	         <a class="active" href="/upcsv">Upload csv file</a>
+          <a href="/display">DataSet</a>
+         
+        </div>
+    </div>
+
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <h2 style="text-align:center; font-size: 38px;">Upload CSV file here</h2><br><br>
+
+        <div class="form-outer" style="display: flex; align-items: center; justify-content: center;">
+          <form class="form" action="/fupload" method="POST" enctype="multipart/form-data"> 
+            <input type="file" hidden="hidden" id="file" name="file"  accept="csv" >
+            <span id="custom-msg" style="font-size: 15px;">No file chosen, yet.</span>
+            <button type="button" id="upload-button" style="font-size: 15px;">Select Your File</button><br>
+          </div>
+          <br><br><br>
+            <input type="submit" style="display: block; margin-left: auto; margin-right: auto; color: white; background-color: black; font-size: 18px; padding: 15px;">
+          </form>
+          
+          <script type="text/javascript">
+            const fileBtn = document.getElementById("file");
+            const customBtn = document.getElementById("upload-button");
+            const customTxt = document.getElementById("custom-msg");
+            customBtn.addEventListener("click", function(){
+              fileBtn.click();
+            });
+            fileBtn.addEventListener("change",function(){
+              if (fileBtn.value) {
+                customTxt.innerHTML = fileBtn.value.match(
+                  /[\/\\]([\w\d\s\.\-\(\)]+)$/
+                )[1]
+              }else {
+                customTxt.innerHTML = "No file chosen, yet.";
+              }
+            });
+          </script>
+    
+
+    </body>
+    </html>
